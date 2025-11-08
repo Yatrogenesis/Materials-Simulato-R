@@ -1,0 +1,141 @@
+# Materials-Simulato-R Development Configuration
+
+environment: development
+log_level: debug
+
+# Database configuration
+database:
+  postgres:
+    url: postgresql://postgres:postgres@localhost:5432/materials_dev
+    pool_size: 20
+    max_connections: 50
+    connection_timeout: 30
+
+  mongodb:
+    url: mongodb://localhost:27017
+    database: materials_dev
+    pool_size: 10
+
+  neo4j:
+    url: neo4j://localhost:7687
+    username: neo4j
+    password: password
+    pool_size: 10
+
+  redis:
+    url: redis://localhost:6379
+    pool_size: 10
+    max_connections: 20
+
+# LLM configuration
+llm:
+  routing:
+    strategy: "balanced_cost_speed"  # Options: cost_optimized, latency_optimized, quality_optimized, balanced_cost_speed
+    primary_provider: "gpt-3.5-turbo"  # Use cheaper model for development
+
+    fallback_chain:
+      - provider: "claude-3-haiku"
+        timeout_ms: 5000
+      - provider: "phi2-local"
+        timeout_ms: 10000
+      - provider: "tinyllama-local"
+        timeout_ms: 15000
+
+  circuit_breaker:
+    failure_threshold: 5
+    timeout_seconds: 60
+    success_threshold: 2
+
+  cost_budget:
+    daily_limit: 10.0  # $10/day for dev
+    per_request_limit: 0.10  # $0.10/request
+    alert_threshold: 0.8
+
+  providers:
+    openai:
+      enabled: true
+      api_key: ${OPENAI_API_KEY}
+      models:
+        - gpt-4-turbo
+        - gpt-3.5-turbo
+
+    anthropic:
+      enabled: true
+      api_key: ${ANTHROPIC_API_KEY}
+      models:
+        - claude-3-5-sonnet
+        - claude-3-haiku
+
+    google:
+      enabled: false  # Disable for dev
+      api_key: ${GOOGLE_API_KEY}
+
+    local:
+      enabled: true
+      models_path: ./models
+      models:
+        - name: phi2
+          file: phi-2.Q4_K_M.gguf
+          quantization: Q4_K_M
+          context_size: 2048
+        - name: tinyllama
+          file: tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf
+          quantization: Q4_K_M
+          context_size: 2048
+
+# API configuration
+api:
+  host: "0.0.0.0"
+  port: 8080
+  cors_origins:
+    - http://localhost:3000
+    - http://127.0.0.1:3000
+
+  rate_limiting:
+    enabled: true
+    requests_per_second: 100
+    burst_size: 200
+
+  authentication:
+    jwt_secret: ${JWT_SECRET:-dev-secret-key-change-in-production}
+    token_expiry_hours: 24
+    refresh_token_expiry_days: 30
+
+# Compute configuration
+compute:
+  workers: 4  # Number of compute worker threads
+  gpu_enabled: false  # Disable GPU for dev
+  ml_backend: "candle"  # Options: candle, torch
+
+  ml_models:
+    cache_dir: ./cache/models
+    auto_download: true
+
+# Monitoring
+monitoring:
+  metrics:
+    enabled: true
+    port: 9090
+    export_interval_seconds: 15
+
+  tracing:
+    enabled: true
+    endpoint: http://localhost:4317
+    sampling_rate: 1.0  # 100% sampling in dev
+
+  logging:
+    format: "pretty"  # Options: json, pretty
+    level: debug
+    file: ./logs/development.log
+
+# Security
+security:
+  tls_enabled: false  # Disable TLS for dev
+  audit_logging: true
+  session_timeout_minutes: 480
+
+# Feature flags
+features:
+  multi_tenant: false
+  experimental_dft: false
+  advanced_ml: true

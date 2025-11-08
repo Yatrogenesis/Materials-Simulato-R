@@ -1,0 +1,33 @@
+[package]
+name = "materials-core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+# Serialization
+serde.workspace = true
+serde_json.workspace = true
+
+# Error handling
+anyhow.workspace = true
+thiserror.workspace = true
+
+# UUID
+uuid.workspace = true
+
+# Time
+chrono.workspace = true
+
+# Scientific computing
+ndarray.workspace = true
+nalgebra.workspace = true
+
+# Utilities
+once_cell.workspace = true
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["test-util"] }

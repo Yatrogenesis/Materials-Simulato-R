@@ -1,0 +1,46 @@
+# Rust
+/target/
+**/*.rs.bk
+*.pdb
+Cargo.lock  # Include for applications, exclude for libraries
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Models (large files)
+models/*.gguf
+models/*.bin
+models/*.safetensors
+!models/.gitkeep
+
+# Data
+data/
+cache/
+tmp/
+
+# Coverage
+coverage/
+*.profraw
+*.profdata
+
+# Benchmarks
+target/criterion/
