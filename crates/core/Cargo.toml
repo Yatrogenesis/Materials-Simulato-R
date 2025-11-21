@@ -31,5 +31,11 @@ nalgebra.workspace = true
 # Utilities
 once_cell.workspace = true
 
+# Async (for auto-optimizer)
+tokio.workspace = true
+
+# Logging
+tracing.workspace = true
+
 [dev-dependencies]
 tokio = { workspace = true, features = ["test-util"] }

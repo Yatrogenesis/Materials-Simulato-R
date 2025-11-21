@@ -12,6 +12,7 @@ pub mod postgres;
 pub mod mongo;
 pub mod neo4j_db;
 pub mod redis_cache;
+pub mod smart_cache;
 pub mod error;
 
 pub use error::{Error, Result};

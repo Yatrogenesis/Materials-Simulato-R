@@ -2615,6 +2615,7 @@ dependencies = [
  "thiserror 1.0.69",
  "tokio",
  "toml",
+ "tracing",
  "uuid",
 ]
 
@@ -2671,6 +2672,7 @@ version = "1.0.0"
 dependencies = [
  "anyhow",
  "async-trait",
+ "chrono",
  "materials-core",
  "metrics",
  "metrics-exporter-prometheus",
