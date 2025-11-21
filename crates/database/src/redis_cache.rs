@@ -59,7 +59,7 @@ impl RedisCache {
         let json = serde_json::to_string(value)?;
 
         if let Some(seconds) = ttl {
-            let _: () = conn.set_ex(key, json, seconds)
+            let _: () = conn.set_ex(key, json, seconds as u64)
                 .await
                 .map_err(|e| crate::Error::redis(e.to_string()))?;
         } else {
