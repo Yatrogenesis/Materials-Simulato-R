@@ -39,7 +39,7 @@ pub async fn create_material(
 
 /// Get a material by ID
 pub async fn get_material(
-    Path(id): Path<Uuid>,
+    Path(_id): Path<Uuid>,
 ) -> Result<Json<MaterialResponse>, StatusCode> {
     // TODO: Implement database lookup
     Err(StatusCode::NOT_IMPLEMENTED)

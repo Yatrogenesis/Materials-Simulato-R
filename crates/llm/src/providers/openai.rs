@@ -1,17 +1,22 @@
 //! OpenAI provider implementation with async-openai
 
 use crate::{Completion, CompletionParams, Error, LLMProvider, Result};
-use async_openai::{Client, types::{CreateChatCompletionRequestArgs, ChatCompletionRequestMessage, ChatCompletionRequestUserMessageArgs}};
+use async_openai::{
+    Client,
+    config::OpenAIConfig,
+    types::{CreateChatCompletionRequestArgs, ChatCompletionRequestMessage, ChatCompletionRequestUserMessageArgs}
+};
 use async_trait::async_trait;
 
 pub struct OpenAIProvider {
-    client: Client,
+    client: Client<OpenAIConfig>,
     model: String,
 }
 
 impl OpenAIProvider {
     pub fn new(api_key: impl Into<String>, model: impl Into<String>) -> Self {
-        let client = Client::new().with_api_key(api_key.into());
+        let config = OpenAIConfig::new().with_api_key(api_key.into());
+        let client = Client::with_config(config);
         Self {
             client,
             model: model.into(),
@@ -75,12 +80,18 @@ impl LLMProvider for OpenAIProvider {
         let finish_reason = choice
             .finish_reason
             .as_ref()
-            .map(|r| r.to_string())
+            .map(|r| format!("{:?}", r))
             .unwrap_or_else(|| "unknown".to_string());
+
+        let tokens_used = response
+            .usage
+            .as_ref()
+            .map(|u| u.total_tokens as usize)
+            .unwrap_or(0);
 
         Ok(Completion {
             text,
-            tokens_used: response.usage.total_tokens as usize,
+            tokens_used,
             model: self.model.clone(),
             finish_reason,
         })
