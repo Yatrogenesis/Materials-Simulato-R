@@ -808,6 +808,7 @@ name = "compute-worker"
 version = "1.0.0"
 dependencies = [
  "anyhow",
+ "async-trait",
  "config",
  "dotenvy",
  "materials-compute",
@@ -821,6 +822,7 @@ dependencies = [
  "tokio",
  "tracing",
  "tracing-subscriber",
+ "uuid",
 ]
 
 [[package]]
@@ -2546,6 +2548,7 @@ dependencies = [
  "anyhow",
  "argon2",
  "async-trait",
+ "axum",
  "chrono",
  "jsonwebtoken",
  "materials-core",

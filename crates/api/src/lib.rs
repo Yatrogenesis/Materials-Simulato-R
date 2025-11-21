@@ -15,12 +15,29 @@ pub mod error;
 
 pub use error::{Error, Result};
 
-use axum::{Router, routing::get};
+use axum::{Router, routing::{get, post}, extract::Extension};
+use std::sync::Arc;
 
-/// Create the API router
-pub fn create_router() -> Router {
+/// Shared application state
+#[derive(Clone)]
+pub struct AppState {
+    pub db: Arc<dyn materials_database::MaterialDatabase>,
+}
+
+impl AppState {
+    pub fn new(db: Arc<dyn materials_database::MaterialDatabase>) -> Self {
+        Self { db }
+    }
+}
+
+/// Create the API router with state
+pub fn create_router(state: AppState) -> Router {
     Router::new()
         .route("/health", get(health_check))
+        .route("/api/v1/materials", post(rest::materials::create_material))
+        .route("/api/v1/materials/:id", get(rest::materials::get_material))
+        .route("/api/v1/materials", get(rest::materials::list_materials))
+        .layer(Extension(state))
 }
 
 async fn health_check() -> &'static str {

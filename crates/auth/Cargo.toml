@@ -28,6 +28,9 @@ jsonwebtoken.workspace = true
 argon2.workspace = true
 uuid.workspace = true
 
+# Web framework (for middleware)
+axum.workspace = true
+
 # Time
 chrono.workspace = true
 

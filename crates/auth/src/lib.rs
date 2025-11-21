@@ -10,6 +10,7 @@
 pub mod jwt;
 pub mod rbac;
 pub mod multi_tenant;
+pub mod middleware;
 pub mod error;
 
 pub use error::{Error, Result};

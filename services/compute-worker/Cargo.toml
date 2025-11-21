@@ -20,10 +20,14 @@ materials-monitoring = { path = "../../crates/monitoring" }
 
 # Async runtime
 tokio.workspace = true
+async-trait.workspace = true
 
 # Serialization
 serde.workspace = true
 serde_json.workspace = true
+
+# UUID
+uuid.workspace = true
 
 # Error handling
 anyhow.workspace = true
