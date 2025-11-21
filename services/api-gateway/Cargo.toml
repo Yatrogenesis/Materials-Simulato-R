@@ -1,0 +1,51 @@
+[package]
+name = "api-gateway"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "api-gateway"
+path = "src/main.rs"
+
+[dependencies]
+# Core crates
+materials-core = { path = "../../crates/core" }
+materials-database = { path = "../../crates/database" }
+materials-compute = { path = "../../crates/compute" }
+materials-llm = { path = "../../crates/llm" }
+materials-auth = { path = "../../crates/auth" }
+materials-api = { path = "../../crates/api" }
+materials-monitoring = { path = "../../crates/monitoring" }
+
+# Async runtime
+tokio.workspace = true
+
+# Web framework
+axum.workspace = true
+tower.workspace = true
+tower-http.workspace = true
+
+# Serialization
+serde.workspace = true
+serde_json.workspace = true
+
+# Error handling
+anyhow.workspace = true
+
+# Configuration
+config.workspace = true
+dotenvy.workspace = true
+
+# Logging
+tracing.workspace = true
+tracing-subscriber.workspace = true
+
+# Metrics
+metrics.workspace = true
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["test-util", "macros"] }

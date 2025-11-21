@@ -1,6 +1,6 @@
 [build]
 # Use all available cores for compilation
-jobs = 0
+# jobs = 0  # Commented out - let Cargo decide automatically
 
 [target.x86_64-unknown-linux-gnu]
 rustflags = ["-C", "target-cpu=native"]

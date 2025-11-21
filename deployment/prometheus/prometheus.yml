@@ -1,0 +1,63 @@
+# Prometheus configuration for Materials-Simulato-R
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    cluster: 'materials-simulato-r'
+    environment: 'development'
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: []
+          # - alertmanager:9093
+
+# Load rules once and periodically evaluate them
+rule_files:
+  # - "alerts/*.yml"
+
+# Scrape configurations
+scrape_configs:
+  # API Gateway
+  - job_name: 'api-gateway'
+    static_configs:
+      - targets: ['api-gateway:9090']
+        labels:
+          service: 'api-gateway'
+
+  # Compute Workers
+  - job_name: 'compute-worker'
+    static_configs:
+      - targets: ['compute-worker:9090']
+        labels:
+          service: 'compute-worker'
+
+  # LLM Orchestrator
+  - job_name: 'llm-orchestrator'
+    static_configs:
+      - targets: ['llm-orchestrator:9090']
+        labels:
+          service: 'llm-orchestrator'
+
+  # PostgreSQL Exporter (if enabled)
+  - job_name: 'postgres'
+    static_configs:
+      - targets: ['postgres-exporter:9187']
+        labels:
+          service: 'postgres'
+
+  # Redis Exporter (if enabled)
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis-exporter:9121']
+        labels:
+          service: 'redis'
+
+  # Node Exporter (system metrics)
+  - job_name: 'node'
+    static_configs:
+      - targets: ['node-exporter:9100']
+        labels:
+          service: 'node'

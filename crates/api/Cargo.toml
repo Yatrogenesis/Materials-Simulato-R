@@ -1,0 +1,44 @@
+[package]
+name = "materials-api"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+# Core
+materials-core = { path = "../core" }
+materials-database = { path = "../database" }
+materials-compute = { path = "../compute" }
+materials-llm = { path = "../llm" }
+materials-auth = { path = "../auth" }
+
+# Async runtime
+tokio.workspace = true
+async-trait.workspace = true
+
+# Web framework
+axum.workspace = true
+tower.workspace = true
+tower-http.workspace = true
+hyper.workspace = true
+
+# Serialization
+serde.workspace = true
+serde_json.workspace = true
+
+# UUID
+uuid.workspace = true
+
+# Error handling
+anyhow.workspace = true
+thiserror.workspace = true
+
+# Logging
+tracing.workspace = true
+metrics.workspace = true
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["test-util", "macros"] }

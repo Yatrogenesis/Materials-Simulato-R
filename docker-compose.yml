@@ -6,9 +6,9 @@ services:
     image: postgres:16-alpine
     container_name: materials-postgres
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: materials_dev
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-materials_dev}
     ports:
       - "5432:5432"
     volumes:
@@ -25,8 +25,8 @@ services:
     image: mongo:7.0
     container_name: materials-mongo
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-root}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-password}
       MONGO_INITDB_DATABASE: materials_dev
     ports:
       - "27017:27017"
@@ -43,7 +43,7 @@ services:
     image: neo4j:5.15
     container_name: materials-neo4j
     environment:
-      NEO4J_AUTH: neo4j/password
+      NEO4J_AUTH: ${NEO4J_AUTH:-neo4j/password}
       NEO4J_PLUGINS: '["apoc", "graph-data-science"]'
       NEO4J_dbms_security_procedures_unrestricted: "apoc.*,gds.*"
       NEO4J_dbms_memory_heap_max__size: 2G
@@ -116,7 +116,7 @@ services:
     image: grafana/grafana:latest
     container_name: materials-grafana
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:-admin}
       - GF_USERS_ALLOW_SIGN_UP=false
     ports:
       - "3001:3000"
