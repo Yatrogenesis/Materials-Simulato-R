@@ -247,6 +247,35 @@ GPT-4 → Claude-3.5 → Gemini → Mixtral-8x7B → Mistral-7B → Phi2 → Tin
 
 ---
 
+
+## 📖 Materials-SimPro Data Integration
+
+### 🚧 Por Desarrollar - Data Consumption from Public Documentation
+
+Materials-Simulato-R is designed to consume scientific data and documentation from the **[materials-simpro-releases](https://github.com/Yatrogenesis/materials-simpro-releases)** public repository.
+
+#### Planned Integration Features
+
+**Data Sources** (from materials-simpro-releases):
+- 📐 **FEM Solver Documentation**: Element libraries, mesh generation algorithms
+- 🧬 **Molecular Dynamics Data**: Force field parameters, interatomic potentials
+- 🤖 **ML Model Architectures**: Pre-trained models for property prediction
+- 📊 **Materials Database**: Property values, experimental datasets
+- ⚙️ **Optimization Algorithms**: Multi-objective optimization strategies
+
+**Current Status**:
+- ✅ Architecture documented in materials-simpro-releases
+- ✅ Data schema defined
+- 🚧 Rust integration layer in development
+- 🚧 Automatic sync mechanism planned
+
+**Related Repository**:
+- **Documentation**: [materials-simpro-releases](https://github.com/Yatrogenesis/materials-simpro-releases)
+- **Python Version**: Materials-SimPro (enterprise license)
+- **Data Format**: JSON, HDF5, ONNX, SQLite
+
+---
+
 ## 🗺️ Roadmap
 
 ### Phase 0: Setup (Weeks 1-2) ✅
