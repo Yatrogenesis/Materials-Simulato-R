@@ -61,13 +61,13 @@ redis = { version = "0.24", features = ["tokio-comp", "cluster"] }
 ndarray = { version = "0.15", features = ["rayon", "serde"] }
 nalgebra = "0.32"
 rayon = "1.8"
-polars = { version = "0.36", features = ["lazy", "dtype-full"] }
+# polars = { version = "0.36", features = ["lazy", "dtype-full"] }  # TODO: Update to newer version
 
 # Machine learning
-candle-core = "0.3"
-candle-nn = "0.3"
-candle-transformers = "0.3"
-tch = "0.15"  # PyTorch bindings
+# candle-core = "0.3"  # TODO: Update to newer version
+# candle-nn = "0.3"
+# candle-transformers = "0.3"
+# tch = "0.15"  # PyTorch bindings - TODO: Update
 linfa = "0.7"
 
 # LLM integration

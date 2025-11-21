@@ -1,0 +1,47 @@
+[package]
+name = "materials-database"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+# Core
+materials-core = { path = "../core" }
+
+# Async runtime
+tokio.workspace = true
+async-trait.workspace = true
+futures.workspace = true
+
+# Serialization
+serde.workspace = true
+serde_json.workspace = true
+
+# Error handling
+anyhow.workspace = true
+thiserror.workspace = true
+
+# Database drivers
+sqlx.workspace = true
+mongodb.workspace = true
+neo4rs.workspace = true
+redis.workspace = true
+
+# Connection pooling
+deadpool-postgres.workspace = true
+deadpool-redis.workspace = true
+
+# UUID
+uuid.workspace = true
+
+# Time
+chrono.workspace = true
+
+# Logging
+tracing.workspace = true
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["test-util", "macros"] }

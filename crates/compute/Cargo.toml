@@ -1,0 +1,51 @@
+[package]
+name = "materials-compute"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+# Core
+materials-core = { path = "../core" }
+
+# Async runtime
+tokio.workspace = true
+async-trait.workspace = true
+
+# Serialization
+serde.workspace = true
+serde_json.workspace = true
+
+# Error handling
+anyhow.workspace = true
+thiserror.workspace = true
+
+# Scientific computing
+ndarray.workspace = true
+nalgebra.workspace = true
+rayon.workspace = true
+# polars.workspace = true  # TODO: Re-enable when updated
+
+# Machine learning
+# candle-core.workspace = true  # TODO: Re-enable when updated
+# candle-nn.workspace = true
+# candle-transformers.workspace = true
+# tch.workspace = true
+linfa.workspace = true
+
+# Utilities
+once_cell.workspace = true
+
+# Logging
+tracing.workspace = true
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["test-util", "macros"] }
+# criterion = "0.5"
+
+# [[bench]]
+# name = "compute_benchmarks"
+# harness = false
