@@ -8,6 +8,7 @@ pub mod material;
 pub mod property;
 pub mod config;
 pub mod auto_optimizer;
+pub mod feature_flags;
 
 pub use error::{Error, Result};
 pub use material::Material;

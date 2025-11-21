@@ -10,6 +10,7 @@
 pub mod metrics;
 pub mod tracing_setup;
 pub mod health;
+pub mod benchmarks;
 pub mod error;
 
 pub use error::{Error, Result};

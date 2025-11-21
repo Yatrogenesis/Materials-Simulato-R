@@ -12,6 +12,7 @@ pub mod rest;
 pub mod handlers;
 pub mod middleware;
 pub mod error;
+pub mod rate_limiter;
 
 pub use error::{Error, Result};
 
