@@ -27,13 +27,13 @@ thiserror.workspace = true
 ndarray.workspace = true
 nalgebra.workspace = true
 rayon.workspace = true
-# polars.workspace = true  # TODO: Re-enable when updated
+polars.workspace = true
 
 # Machine learning
-# candle-core.workspace = true  # TODO: Re-enable when updated
+# candle-core.workspace = true  # TODO: Fix rand conflicts
 # candle-nn.workspace = true
 # candle-transformers.workspace = true
-# tch.workspace = true
+# tch.workspace = true  # Optional: requires libtorch
 linfa.workspace = true
 
 # Utilities
