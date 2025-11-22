@@ -10,6 +10,8 @@ members = [
     "crates/api",
     "crates/monitoring",
     "crates/cli",
+    "crates/drugs-core",
+    "crates/drugs-molecular",
     "services/api-gateway",
     "services/compute-worker",
     "services/llm-orchestrator",

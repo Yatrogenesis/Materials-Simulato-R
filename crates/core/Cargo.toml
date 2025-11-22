@@ -40,6 +40,10 @@ tracing.workspace = true
 # Random (for ML and discovery)
 rand = "0.8"
 
+# Drug Discovery Integration
+drugs-core = { path = "../drugs-core" }
+drugs-molecular = { path = "../drugs-molecular" }
+
 [dev-dependencies]
 tokio = { workspace = true, features = ["test-util"] }
 tempfile = "3.8"

@@ -1291,6 +1291,31 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1aaf95b3e5c8f23aa320147307562d361db0ae0d51242340f558153b4eb2439b"
 
 [[package]]
+name = "drugs-core"
+version = "1.0.0"
+dependencies = [
+ "anyhow",
+ "chrono",
+ "serde",
+ "serde_json",
+ "thiserror 1.0.69",
+ "uuid",
+]
+
+[[package]]
+name = "drugs-molecular"
+version = "1.0.0"
+dependencies = [
+ "anyhow",
+ "drugs-core",
+ "nalgebra",
+ "ndarray 0.16.1",
+ "serde",
+ "serde_json",
+ "thiserror 1.0.69",
+]
+
+[[package]]
 name = "dyn-clone"
 version = "1.0.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2607,6 +2632,8 @@ version = "1.0.0"
 dependencies = [
  "anyhow",
  "chrono",
+ "drugs-core",
+ "drugs-molecular",
  "nalgebra",
  "ndarray 0.16.1",
  "once_cell",
@@ -2636,12 +2663,14 @@ dependencies = [
  "mongodb",
  "neo4rs",
  "redis",
+ "reqwest 0.11.27",
  "serde",
  "serde_json",
  "sqlx",
  "thiserror 1.0.69",
  "tokio",
  "tracing",
+ "urlencoding",
  "uuid",
 ]
 
@@ -4613,11 +4642,13 @@ dependencies = [
  "http-body 0.4.6",
  "hyper 0.14.32",
  "hyper-rustls 0.24.2",
+ "hyper-tls",
  "ipnet",
  "js-sys",
  "log",
  "mime",
  "mime_guess",
+ "native-tls",
  "once_cell",
  "percent-encoding",
  "pin-project-lite",
@@ -4630,6 +4661,7 @@ dependencies = [
  "sync_wrapper 0.1.2",
  "system-configuration",
  "tokio",
+ "tokio-native-tls",
  "tokio-rustls 0.24.1",
  "tokio-util",
  "tower-service",

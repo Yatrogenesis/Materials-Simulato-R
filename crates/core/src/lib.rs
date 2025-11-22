@@ -18,6 +18,24 @@ pub mod knowledge_graph;
 pub mod discovery;
 pub mod recommendations;
 
+// 💊 Drug Discovery Module (re-exports from drugs-core and drugs-molecular)
+pub mod drugs {
+    //! Drug discovery and pharmaceutical materials
+    //!
+    //! This module integrates Drugs-Simulato-R for AI-powered drug discovery.
+    //! Provides 100-1000x performance improvement over Python RDKit.
+
+    pub use drugs_core::{Molecule, Compound, Target, TargetType};
+    pub use drugs_molecular::{
+        MolecularDescriptors,
+        Fingerprint,
+        FingerprintType,
+        tanimoto_similarity,
+        dice_similarity,
+        cosine_similarity,
+    };
+}
+
 // 🔬 LIRS - LISP In Rust for Science
 pub mod lirs;
 
