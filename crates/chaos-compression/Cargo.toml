@@ -1,0 +1,38 @@
+[package]
+name = "materials-chaos-compression"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Chaotic attractor compression for vector embeddings - 100-1000x compression"
+
+[package.metadata]
+experiment_date = "2025-11-21"
+author_orcid = "0009-0008-6093-8267"
+
+[dependencies]
+flate2 = "1.0"
+zstd = "0.13"
+lz4 = "1.24"
+ndarray = { version = "0.15", features = ["rayon"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+rayon = "1.8"
+bytemuck = "1.14"
+rand = "0.8"
+# ANS (Asymmetric Numeral Systems) for entropy coding
+constriction = "0.3"  # Modern ANS implementation
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+proptest = "1.4"
+
+[[bench]]
+name = "compression_bench"
+harness = false
+
+[lib]
+name = "materials_chaos_compression"
+path = "src/lib.rs"

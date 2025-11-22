@@ -25,19 +25,26 @@ pub mod drugs {
     //! This module integrates Drugs-Simulato-R for AI-powered drug discovery.
     //! Provides 100-1000x performance improvement over Python RDKit.
 
-    pub use drugs_core::{Molecule, Compound, Target, TargetType};
+    pub use drugs_core::{Molecule, Compound, Target};
     pub use drugs_molecular::{
         MolecularDescriptors,
         Fingerprint,
         FingerprintType,
         tanimoto_similarity,
         dice_similarity,
-        cosine_similarity,
     };
 }
 
-// 🔬 LIRS - LISP In Rust for Science
-pub mod lirs;
+// 🌀 Chaotic Attractor Compression (Memory Optimization)
+pub mod compression {
+    //! Chaotic attractor-based compression for vector embeddings
+    //!
+    //! Achieves 100-1000x compression ratios for high-dimensional vectors.
+    //! Based on PP25-CHAOTIC_ATTRACTOR_COMPRESSION research.
+
+    pub use materials_chaos_compression::attractor_compress;
+    pub use materials_chaos_compression::attractor_decompress;
+}
 
 // 🧬 Graph Neural Networks
 pub mod gnn;

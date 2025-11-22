@@ -1,0 +1,11 @@
+/Users/yatrogenesis/yatrogenesis-ai/experiments/compression/target/release/deps/special-e3627e62fa4a78f6.d: /Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/lib.rs /Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/beta.rs /Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/error.rs /Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/gamma.rs /Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/primitive.rs
+
+/Users/yatrogenesis/yatrogenesis-ai/experiments/compression/target/release/deps/libspecial-e3627e62fa4a78f6.rlib: /Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/lib.rs /Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/beta.rs /Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/error.rs /Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/gamma.rs /Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/primitive.rs
+
+/Users/yatrogenesis/yatrogenesis-ai/experiments/compression/target/release/deps/libspecial-e3627e62fa4a78f6.rmeta: /Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/lib.rs /Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/beta.rs /Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/error.rs /Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/gamma.rs /Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/primitive.rs
+
+/Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/lib.rs:
+/Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/beta.rs:
+/Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/error.rs:
+/Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/gamma.rs:
+/Users/yatrogenesis/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/special-0.10.3/src/primitive.rs:

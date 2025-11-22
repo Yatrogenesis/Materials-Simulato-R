@@ -1,0 +1,250 @@
+[
+  [
+    "Random Similar (baseline)",
+    0.9180465462138826,
+    [
+      {
+        "method": "GZIP",
+        "compression_ratio": 1.1206639934160991,
+        "compression_time_ms": 120.39066700000001,
+        "decompression_time_ms": 22.385915999999998,
+        "accuracy_loss": 0.0
+      },
+      {
+        "method": "Int8+GZIP",
+        "compression_ratio": 4.597687387190532,
+        "compression_time_ms": 19.31225,
+        "decompression_time_ms": 3.578541,
+        "accuracy_loss": 1.578385424906988
+      },
+      {
+        "method": "Delta+GZIP",
+        "compression_ratio": 1.0909369841842547,
+        "compression_time_ms": 129.373,
+        "decompression_time_ms": 13.858667,
+        "accuracy_loss": 0.0
+      },
+      {
+        "method": "Zstd",
+        "compression_ratio": 1.123963434601024,
+        "compression_time_ms": 14.526499999999999,
+        "decompression_time_ms": 6.744084,
+        "accuracy_loss": 0.0
+      },
+      {
+        "method": "PolarDelta+GZIP",
+        "compression_ratio": 2.665521325472128,
+        "compression_time_ms": 89.29445799999999,
+        "decompression_time_ms": 15.34125,
+        "accuracy_loss": 4.608095294013573
+      },
+      {
+        "method": "Delta+ANS",
+        "compression_ratio": 4.967923579363064,
+        "compression_time_ms": 33.284959,
+        "decompression_time_ms": 5.291167000000001,
+        "accuracy_loss": 33.56869880468596
+      },
+      {
+        "method": "Delta+RLE+GZIP",
+        "compression_ratio": 0.9689222600742525,
+        "compression_time_ms": 1567.8764589999998,
+        "decompression_time_ms": 22.204917000000002,
+        "accuracy_loss": 0.00003756315057730589
+      },
+      {
+        "method": "Attractor(PCA-10)",
+        "compression_ratio": 166.72998643147898,
+        "compression_time_ms": 3.686875,
+        "decompression_time_ms": 0.488541,
+        "accuracy_loss": 200.1852264717458
+      }
+    ]
+  ],
+  [
+    "Conversational Drift ⭐ (drift 5%)",
+    0.9635723337072936,
+    [
+      {
+        "method": "GZIP",
+        "compression_ratio": 1.1364981650290045,
+        "compression_time_ms": 86.900459,
+        "decompression_time_ms": 11.010375,
+        "accuracy_loss": 0.0
+      },
+      {
+        "method": "Int8+GZIP",
+        "compression_ratio": 10.794476264099231,
+        "compression_time_ms": 69.257375,
+        "decompression_time_ms": 2.8761669999999997,
+        "accuracy_loss": 25.261113961300907
+      },
+      {
+        "method": "Delta+GZIP",
+        "compression_ratio": 1.1007209865785135,
+        "compression_time_ms": 81.758416,
+        "decompression_time_ms": 10.758917,
+        "accuracy_loss": 0.0
+      },
+      {
+        "method": "Zstd",
+        "compression_ratio": 1.1390205757837997,
+        "compression_time_ms": 11.204333,
+        "decompression_time_ms": 5.359125000000001,
+        "accuracy_loss": 0.0
+      },
+      {
+        "method": "PolarDelta+GZIP",
+        "compression_ratio": 2.6435129809223037,
+        "compression_time_ms": 51.497542,
+        "decompression_time_ms": 13.380042,
+        "accuracy_loss": 1.421710151855832
+      },
+      {
+        "method": "Delta+ANS",
+        "compression_ratio": 4.2683087799056025,
+        "compression_time_ms": 32.591041000000004,
+        "decompression_time_ms": 7.6385000000000005,
+        "accuracy_loss": 5.236661117167126
+      },
+      {
+        "method": "Delta+RLE+GZIP",
+        "compression_ratio": 0.9726816408556686,
+        "compression_time_ms": 1788.248125,
+        "decompression_time_ms": 25.065583999999998,
+        "accuracy_loss": 1.9162973997085182e-6
+      },
+      {
+        "method": "Attractor(PCA-10)",
+        "compression_ratio": 242.5965411040038,
+        "compression_time_ms": 4.754708,
+        "decompression_time_ms": 0.332583,
+        "accuracy_loss": 30.90358019470667
+      }
+    ]
+  ],
+  [
+    "Temporal Smoothing (alpha 0.9)",
+    0.9185267896186055,
+    [
+      {
+        "method": "GZIP",
+        "compression_ratio": 1.131804365846919,
+        "compression_time_ms": 84.375,
+        "decompression_time_ms": 10.897709,
+        "accuracy_loss": 0.0
+      },
+      {
+        "method": "Int8+GZIP",
+        "compression_ratio": 9.969462031991847,
+        "compression_time_ms": 68.318542,
+        "decompression_time_ms": 3.61925,
+        "accuracy_loss": 26.054195015543275
+      },
+      {
+        "method": "Delta+GZIP",
+        "compression_ratio": 1.0956461262739294,
+        "compression_time_ms": 80.971542,
+        "decompression_time_ms": 11.548124999999999,
+        "accuracy_loss": 0.0
+      },
+      {
+        "method": "Zstd",
+        "compression_ratio": 1.134783630155102,
+        "compression_time_ms": 11.734708,
+        "decompression_time_ms": 4.535916,
+        "accuracy_loss": 0.0
+      },
+      {
+        "method": "PolarDelta+GZIP",
+        "compression_ratio": 2.5565699353367566,
+        "compression_time_ms": 55.1205,
+        "decompression_time_ms": 15.3385,
+        "accuracy_loss": 1.6389119118641022
+      },
+      {
+        "method": "Delta+ANS",
+        "compression_ratio": 4.260423962111074,
+        "compression_time_ms": 25.214209,
+        "decompression_time_ms": 3.770625,
+        "accuracy_loss": 8.487106724661063
+      },
+      {
+        "method": "Delta+RLE+GZIP",
+        "compression_ratio": 0.9589721017784063,
+        "compression_time_ms": 2029.3492500000002,
+        "decompression_time_ms": 27.21875,
+        "accuracy_loss": 0.000015781246756354136
+      },
+      {
+        "method": "Attractor(PCA-10)",
+        "compression_ratio": 225.15391380826736,
+        "compression_time_ms": 7.0057920000000005,
+        "decompression_time_ms": 1.332208,
+        "accuracy_loss": 47.05934835132283
+      }
+    ]
+  ],
+  [
+    "Clustered Topics (100 per cluster)",
+    0.9819479775556996,
+    [
+      {
+        "method": "GZIP",
+        "compression_ratio": 1.126321007353351,
+        "compression_time_ms": 142.366667,
+        "decompression_time_ms": 14.132917,
+        "accuracy_loss": 0.0
+      },
+      {
+        "method": "Int8+GZIP",
+        "compression_ratio": 9.858097310202746,
+        "compression_time_ms": 76.80375000000001,
+        "decompression_time_ms": 7.055792,
+        "accuracy_loss": 16.974980566521936
+      },
+      {
+        "method": "Delta+GZIP",
+        "compression_ratio": 1.1023653128123054,
+        "compression_time_ms": 109.053833,
+        "decompression_time_ms": 17.565583,
+        "accuracy_loss": 0.0
+      },
+      {
+        "method": "Zstd",
+        "compression_ratio": 1.1294744671487278,
+        "compression_time_ms": 17.682625,
+        "decompression_time_ms": 5.815917000000001,
+        "accuracy_loss": 0.0
+      },
+      {
+        "method": "PolarDelta+GZIP",
+        "compression_ratio": 2.735042735042735,
+        "compression_time_ms": 91.44387499999999,
+        "decompression_time_ms": 20.802334,
+        "accuracy_loss": 1.9292715150514628
+      },
+      {
+        "method": "Delta+ANS",
+        "compression_ratio": 5.328097737292868,
+        "compression_time_ms": 34.131709,
+        "decompression_time_ms": 6.765125,
+        "accuracy_loss": 14.68489526551876
+      },
+      {
+        "method": "Delta+RLE+GZIP",
+        "compression_ratio": 0.9786571816775751,
+        "compression_time_ms": 1498.0534169999999,
+        "decompression_time_ms": 20.780084000000002,
+        "accuracy_loss": 5.526394550709838e-6
+      },
+      {
+        "method": "Attractor(PCA-10)",
+        "compression_ratio": 261.2911457004338,
+        "compression_time_ms": 4.840375,
+        "decompression_time_ms": 0.48987499999999995,
+        "accuracy_loss": 68.67979085651982
+      }
+    ]
+  ]
+]

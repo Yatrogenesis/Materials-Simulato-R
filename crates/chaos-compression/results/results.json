@@ -1,0 +1,30 @@
+[
+  {
+    "method": "GZIP",
+    "compression_ratio": 1.1199347288040868,
+    "compression_time_ms": 86.031584,
+    "decompression_time_ms": 10.206958,
+    "accuracy_loss": 0.0
+  },
+  {
+    "method": "Int8+GZIP",
+    "compression_ratio": 4.590219783667962,
+    "compression_time_ms": 17.277082999999998,
+    "decompression_time_ms": 2.678583,
+    "accuracy_loss": 1.7081796564184515
+  },
+  {
+    "method": "Delta+GZIP",
+    "compression_ratio": 1.0903681660767013,
+    "compression_time_ms": 88.394209,
+    "decompression_time_ms": 10.444459,
+    "accuracy_loss": 0.0
+  },
+  {
+    "method": "Zstd",
+    "compression_ratio": 1.1231555405898979,
+    "compression_time_ms": 10.803,
+    "decompression_time_ms": 3.858291,
+    "accuracy_loss": 0.0
+  }
+]

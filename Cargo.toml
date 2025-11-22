@@ -12,6 +12,7 @@ members = [
     "crates/cli",
     "crates/drugs-core",
     "crates/drugs-molecular",
+    "crates/chaos-compression",
     "services/api-gateway",
     "services/compute-worker",
     "services/llm-orchestrator",
