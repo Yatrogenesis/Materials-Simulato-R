@@ -303,8 +303,17 @@ impl Evaluator {
     pub fn eval(&mut self, expr: SExpr) -> Result<SExpr, String> {
         match expr {
             SExpr::Atom(Atom::Symbol(ref name)) => {
-                self.env.get(name)
-                    .ok_or_else(|| format!("Unbound symbol: {}", name))
+                // Check environment first
+                if let Some(value) = self.env.get(name) {
+                    return Ok(value);
+                }
+
+                // If not in environment, check if it's a built-in function
+                if self.is_builtin(name) {
+                    return Ok(expr.clone());
+                }
+
+                Err(format!("Unbound symbol: {}", name))
             }
             SExpr::Atom(atom) => Ok(SExpr::Atom(atom)),
             SExpr::List(ref list) if list.is_empty() => {
@@ -313,6 +322,17 @@ impl Evaluator {
             SExpr::List(list) => self.eval_list(list),
             SExpr::Quote(expr) => Ok(*expr),
         }
+    }
+
+    /// Check if a name is a built-in function
+    fn is_builtin(&self, name: &str) -> bool {
+        matches!(name,
+            "+" | "-" | "*" | "/" |
+            "=" | ">" | "<" | ">=" | "<=" |
+            "list" | "car" | "cdr" | "first" | "rest" |
+            "define" | "lambda" | "if" | "quote" |
+            "material" | "substitute" | "combine"
+        )
     }
 
     fn eval_list(&mut self, list: Vec<SExpr>) -> Result<SExpr, String> {
