@@ -14,6 +14,7 @@ pub mod neo4j_db;
 pub mod redis_cache;
 pub mod smart_cache;
 pub mod error;
+pub mod stem_bibliography_apis;
 
 pub use error::{Error, Result};
 
