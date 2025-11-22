@@ -10,6 +10,13 @@ pub mod config;
 pub mod auto_optimizer;
 pub mod feature_flags;
 
+// 🧠 Advanced Intelligence Modules
+pub mod embeddings;
+pub mod ml_predictor;
+pub mod knowledge_graph;
+pub mod discovery;
+pub mod recommendations;
+
 pub use error::{Error, Result};
 pub use material::Material;
 pub use property::Property;
