@@ -139,6 +139,67 @@ impl Material {
         elements.dedup();
         elements
     }
+
+    /// Calculate average atomic mass
+    pub fn average_atomic_mass(&self) -> f64 {
+        if self.structure.sites.is_empty() {
+            return 0.0;
+        }
+
+        let total_mass: f64 = self.structure.sites
+            .iter()
+            .map(|site| Self::atomic_mass(&site.element))
+            .sum();
+
+        total_mass / self.structure.sites.len() as f64
+    }
+
+    /// Get atomic mass for an element (simplified lookup table)
+    fn atomic_mass(element: &str) -> f64 {
+        match element {
+            "H" => 1.008,
+            "He" => 4.003,
+            "Li" => 6.941,
+            "Be" => 9.012,
+            "B" => 10.811,
+            "C" => 12.011,
+            "N" => 14.007,
+            "O" => 15.999,
+            "F" => 18.998,
+            "Ne" => 20.180,
+            "Na" => 22.990,
+            "Mg" => 24.305,
+            "Al" => 26.982,
+            "Si" => 28.085,
+            "P" => 30.974,
+            "S" => 32.065,
+            "Cl" => 35.453,
+            "Ar" => 39.948,
+            "K" => 39.098,
+            "Ca" => 40.078,
+            "Ti" => 47.867,
+            "V" => 50.942,
+            "Cr" => 51.996,
+            "Mn" => 54.938,
+            "Fe" => 55.845,
+            "Co" => 58.933,
+            "Ni" => 58.693,
+            "Cu" => 63.546,
+            "Zn" => 65.380,
+            "Ga" => 69.723,
+            "Sr" => 87.620,
+            "Y" => 88.906,
+            "Zr" => 91.224,
+            "Nb" => 92.906,
+            "Mo" => 95.960,
+            "Ba" => 137.327,
+            "La" => 138.905,
+            "Ce" => 140.116,
+            "Pb" => 207.200,
+            "Bi" => 208.980,
+            _ => 1.0,  // Unknown element
+        }
+    }
 }
 
 impl Default for Structure {

@@ -45,6 +45,9 @@ metrics.workspace = true
 # Time
 chrono.workspace = true
 
+# UUID
+uuid.workspace = true
+
 [dev-dependencies]
 tokio = { workspace = true, features = ["test-util", "macros"] }
 mockito = "1.2"

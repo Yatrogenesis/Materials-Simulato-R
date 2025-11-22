@@ -24,17 +24,17 @@ use serde::{Deserialize, Serialize};
 /// Completion request parameters
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct CompletionParams {
-    pub max_tokens: usize,
-    pub temperature: f64,
-    pub top_p: Option<f64>,
+    pub max_tokens: Option<usize>,
+    pub temperature: Option<f32>,
+    pub top_p: Option<f32>,
     pub stop_sequences: Vec<String>,
 }
 
 impl Default for CompletionParams {
     fn default() -> Self {
         Self {
-            max_tokens: 1000,
-            temperature: 0.7,
+            max_tokens: Some(1000),
+            temperature: Some(0.7),
             top_p: Some(0.95),
             stop_sequences: Vec::new(),
         }
@@ -44,6 +44,7 @@ impl Default for CompletionParams {
 /// Completion response
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Completion {
+    pub id: String,
     pub text: String,
     pub tokens_used: usize,
     pub model: String,
