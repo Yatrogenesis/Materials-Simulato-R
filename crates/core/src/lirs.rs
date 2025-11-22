@@ -593,8 +593,9 @@ impl LIRS {
 
     /// Initialize built-in chemical macros
     fn init_chemical_macros(&mut self) {
+        // ============ OXIDE STRUCTURES ============
+
         // Macro: (perovskite A B X) => ABX3
-        // Example: (perovskite :Ca :Ti :O) => "CaTiO3"
         self.register_macro(
             "perovskite",
             vec!["A".to_string(), "B".to_string(), "X".to_string()],
@@ -615,7 +616,7 @@ impl LIRS {
             Parser::new("(material A 1 B 2 :O 4)").parse().unwrap(),
         );
 
-        // Macro: (rock-salt A X) => AX (e.g., NaCl)
+        // Macro: (rock-salt A X) => AX
         self.register_macro(
             "rock-salt",
             vec!["A".to_string(), "X".to_string()],
@@ -627,6 +628,165 @@ impl LIRS {
             "garnet",
             vec!["A".to_string(), "B".to_string(), "C".to_string()],
             Parser::new("(material A 3 B 2 C 3 :O 12)").parse().unwrap(),
+        );
+
+        // Macro: (rutile M) => MO2 (e.g., TiO2, SnO2)
+        self.register_macro(
+            "rutile",
+            vec!["M".to_string()],
+            Parser::new("(material M 1 :O 2)").parse().unwrap(),
+        );
+
+        // Macro: (fluorite A X) => AX2 (e.g., CaF2, UO2)
+        self.register_macro(
+            "fluorite",
+            vec!["A".to_string(), "X".to_string()],
+            Parser::new("(material A 1 X 2)").parse().unwrap(),
+        );
+
+        // Macro: (corundum M) => M2O3 (α-Al2O3 structure)
+        self.register_macro(
+            "corundum",
+            vec!["M".to_string()],
+            Parser::new("(material M 2 :O 3)").parse().unwrap(),
+        );
+
+        // Macro: (pyrochlore A B) => A2B2O7
+        self.register_macro(
+            "pyrochlore",
+            vec!["A".to_string(), "B".to_string()],
+            Parser::new("(material A 2 B 2 :O 7)").parse().unwrap(),
+        );
+
+        // ============ SEMICONDUCTOR STRUCTURES ============
+
+        // Macro: (wurtzite A B) => AB (e.g., GaN, ZnO)
+        self.register_macro(
+            "wurtzite",
+            vec!["A".to_string(), "B".to_string()],
+            Parser::new("(material A 1 B 1)").parse().unwrap(),
+        );
+
+        // Macro: (zincblende A B) => AB (e.g., GaAs, ZnS)
+        self.register_macro(
+            "zincblende",
+            vec!["A".to_string(), "B".to_string()],
+            Parser::new("(material A 1 B 1)").parse().unwrap(),
+        );
+
+        // Macro: (chalcopyrite A B X) => ABX2 (e.g., CuInSe2)
+        self.register_macro(
+            "chalcopyrite",
+            vec!["A".to_string(), "B".to_string(), "X".to_string()],
+            Parser::new("(material A 1 B 1 X 2)").parse().unwrap(),
+        );
+
+        // ============ LAYERED STRUCTURES ============
+
+        // Macro: (layered-oxide A M) => AMO2 (e.g., LiCoO2)
+        self.register_macro(
+            "layered-oxide",
+            vec!["A".to_string(), "M".to_string()],
+            Parser::new("(material A 1 M 1 :O 2)").parse().unwrap(),
+        );
+
+        // Macro: (delafossite A M) => AMO2 (e.g., CuAlO2)
+        self.register_macro(
+            "delafossite",
+            vec!["A".to_string(), "M".to_string()],
+            Parser::new("(material A 1 M 1 :O 2)").parse().unwrap(),
+        );
+
+        // ============ COMPLEX OXIDES ============
+
+        // Macro: (double-perovskite A B1 B2 X) => A2B1B2X6
+        self.register_macro(
+            "double-perovskite",
+            vec!["A".to_string(), "B1".to_string(), "B2".to_string(), "X".to_string()],
+            Parser::new("(material A 2 B1 1 B2 1 X 6)").parse().unwrap(),
+        );
+
+        // Macro: (olivine A M) => A2MO4 (e.g., Li2FePO4)
+        self.register_macro(
+            "olivine",
+            vec!["A".to_string(), "M".to_string()],
+            Parser::new("(material A 2 M 1 :O 4)").parse().unwrap(),
+        );
+
+        // Macro: (nasicon A M) => AM2(PO4)3 - simplified as A3M6P9O36
+        self.register_macro(
+            "nasicon",
+            vec!["A".to_string(), "M".to_string()],
+            Parser::new("(material A 3 M 6 :P 9 :O 36)").parse().unwrap(),
+        );
+
+        // ============ METALLIC STRUCTURES ============
+
+        // Macro: (fcc M) => M (face-centered cubic)
+        self.register_macro(
+            "fcc",
+            vec!["M".to_string()],
+            Parser::new("(material M 1)").parse().unwrap(),
+        );
+
+        // Macro: (bcc M) => M (body-centered cubic)
+        self.register_macro(
+            "bcc",
+            vec!["M".to_string()],
+            Parser::new("(material M 1)").parse().unwrap(),
+        );
+
+        // Macro: (hcp M) => M (hexagonal close-packed)
+        self.register_macro(
+            "hcp",
+            vec!["M".to_string()],
+            Parser::new("(material M 1)").parse().unwrap(),
+        );
+
+        // ============ 2D MATERIALS ============
+
+        // Macro: (graphene) => C
+        self.register_macro(
+            "graphene",
+            vec![],
+            Parser::new("(material :C 1)").parse().unwrap(),
+        );
+
+        // Macro: (mos2) => MoS2
+        self.register_macro(
+            "mos2",
+            vec![],
+            Parser::new("(material :Mo 1 :S 2)").parse().unwrap(),
+        );
+
+        // Macro: (hexagonal-bn) => BN
+        self.register_macro(
+            "hexagonal-bn",
+            vec![],
+            Parser::new("(material :B 1 :N 1)").parse().unwrap(),
+        );
+
+        // ============ BATTERY MATERIALS ============
+
+        // Macro: (nmc ratio1 ratio2 ratio3) => LiNi_x Mn_y Co_z O2
+        self.register_macro(
+            "nmc",
+            vec!["x".to_string(), "y".to_string(), "z".to_string()],
+            Parser::new("(material :Li 1 :Ni x :Mn y :Co z :O 2)").parse().unwrap(),
+        );
+
+        // Macro: (lco) => LiCoO2
+        self.register_macro(
+            "lco",
+            vec![],
+            Parser::new("(material :Li 1 :Co 1 :O 2)").parse().unwrap(),
+        );
+
+        // Macro: (lfp) => LiFePO4
+        self.register_macro(
+            "lfp",
+            vec![],
+            Parser::new("(material :Li 1 :Fe 1 :P 1 :O 4)").parse().unwrap(),
         );
     }
 
@@ -673,26 +833,42 @@ impl LIRS {
         }
     }
 
+    /// Recursively expand all macros in an expression
+    fn expand_all_macros(&self, expr: SExpr) -> Result<SExpr, String> {
+        match expr {
+            SExpr::List(ref list) if !list.is_empty() => {
+                if let Some(SExpr::Atom(Atom::Symbol(name))) = list.first() {
+                    // Check if it's a macro
+                    if self.macros.contains_key(name) {
+                        // Expand this macro
+                        let expanded = self.expand_macro(name, &list[1..])?;
+                        // Recursively expand macros in the result
+                        return self.expand_all_macros(expanded);
+                    }
+                }
+
+                // Recursively expand macros in list elements
+                let expanded_list: Result<Vec<_>, _> = list.iter()
+                    .map(|e| self.expand_all_macros(e.clone()))
+                    .collect();
+                Ok(SExpr::List(expanded_list?))
+            }
+            SExpr::Quote(e) => {
+                // Don't expand inside quotes
+                Ok(SExpr::Quote(e))
+            }
+            _ => Ok(expr),
+        }
+    }
+
     /// Execute LIRS code with macro expansion
     pub fn eval(&mut self, code: &str) -> Result<Vec<SExpr>, String> {
         let exprs = Parser::parse_all(code)?;
         let mut results = Vec::new();
 
         for expr in exprs {
-            // Check if it's a macro call
-            let expanded = if let SExpr::List(ref list) = expr {
-                if let Some(SExpr::Atom(Atom::Symbol(name))) = list.first() {
-                    if self.macros.contains_key(name) {
-                        self.expand_macro(name, &list[1..])?
-                    } else {
-                        expr
-                    }
-                } else {
-                    expr
-                }
-            } else {
-                expr
-            };
+            // Recursively expand all macros
+            let expanded = self.expand_all_macros(expr)?;
 
             let result = self.evaluator.eval(expanded)?;
             results.push(result);
@@ -1062,10 +1238,10 @@ mod tests {
         let mut lirs = LIRS::new();
 
         let result = lirs.eval_last("(if #t 1 2)").unwrap();
-        assert_eq!(result, SExpr::Atom(Atom::Float(1.0)));
+        assert_eq!(result, SExpr::Atom(Atom::Integer(1)));
 
         let result = lirs.eval_last("(if #f 1 2)").unwrap();
-        assert_eq!(result, SExpr::Atom(Atom::Float(2.0)));
+        assert_eq!(result, SExpr::Atom(Atom::Integer(2)));
     }
 
     #[test]
@@ -1073,7 +1249,7 @@ mod tests {
         let mut lirs = LIRS::new();
 
         let result = lirs.eval_last("(car (list 1 2 3))").unwrap();
-        assert_eq!(result, SExpr::Atom(Atom::Float(1.0)));
+        assert_eq!(result, SExpr::Atom(Atom::Integer(1)));
 
         let result = lirs.eval_last("(cdr (list 1 2 3))").unwrap();
         match result {

@@ -20,6 +20,9 @@ pub mod recommendations;
 // 🔬 LIRS - LISP In Rust for Science
 pub mod lirs;
 
+// 🧬 Graph Neural Networks
+pub mod gnn;
+
 pub use error::{Error, Result};
 pub use material::Material;
 pub use property::Property;
