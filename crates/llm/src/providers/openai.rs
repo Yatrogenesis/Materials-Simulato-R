@@ -43,8 +43,8 @@ impl LLMProvider for OpenAIProvider {
         let mut request_builder = CreateChatCompletionRequestArgs::default();
         request_builder
             .model(&self.model)
-            .max_tokens(params.max_tokens as u16)
-            .temperature(params.temperature as f32)
+            .max_tokens(params.max_tokens.unwrap_or(1000) as u16)
+            .temperature(params.temperature.unwrap_or(0.7))
             .messages(vec![ChatCompletionRequestMessage::User(message)]);
 
         if let Some(top_p) = params.top_p {
@@ -90,6 +90,7 @@ impl LLMProvider for OpenAIProvider {
             .unwrap_or(0);
 
         Ok(Completion {
+            id: response.id,
             text,
             tokens_used,
             model: self.model.clone(),

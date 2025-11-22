@@ -2592,6 +2592,7 @@ dependencies = [
  "ndarray 0.16.1",
  "once_cell",
  "polars",
+ "rand 0.8.5",
  "rayon",
  "serde",
  "serde_json",
@@ -2666,6 +2667,7 @@ dependencies = [
  "tokenizers",
  "tokio",
  "tracing",
+ "uuid",
 ]
 
 [[package]]
