@@ -17,6 +17,9 @@ pub mod knowledge_graph;
 pub mod discovery;
 pub mod recommendations;
 
+// 🔬 LIRS - LISP In Rust for Science
+pub mod lirs;
+
 pub use error::{Error, Result};
 pub use material::Material;
 pub use property::Property;
