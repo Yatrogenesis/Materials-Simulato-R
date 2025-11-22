@@ -26,6 +26,22 @@ pub mod gnn;
 // 🗣️ Natural Language Interface
 pub mod nli;
 
+// 🎨 3D Visualization Engine
+pub mod viz3d;
+
+// ⚛️ Quantum Chemistry DFT Integration
+pub mod quantum;
+pub mod quantum_lirs;
+
+// 🖥️ REPL - Interactive Shell
+pub mod repl;
+
+// 🔬 High-Throughput Screening
+pub mod hts;
+
+// 🔷 Advanced Crystallography
+pub mod crystallography;
+
 pub use error::{Error, Result};
 pub use material::Material;
 pub use property::Property;
