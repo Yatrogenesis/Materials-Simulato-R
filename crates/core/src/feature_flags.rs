@@ -241,7 +241,7 @@ impl FeatureFlagManager {
     }
 
     /// Auto-rollback if error rate is too high
-    pub async fn auto_rollback(&self, feature_name: &str, error_rate_threshold: f64) -> Result<bool, String> {
+    pub async fn auto_rollback(&self, feature_name: &str, _error_rate_threshold: f64) -> Result<bool, String> {
         let mut flags = self.flags.write().await;
 
         if let Some(flag) = flags.get_mut(feature_name) {

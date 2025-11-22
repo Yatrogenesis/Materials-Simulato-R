@@ -32,6 +32,17 @@ pub enum Commands {
         material_id: String,
     },
 
+    /// Ingest data from worldwide scientific databases
+    Ingest {
+        /// Limit the number of records to ingest (for testing)
+        #[arg(short, long)]
+        limit: Option<u64>,
+
+        /// Data source to ingest from (all, materials-project, pubchem, icsd)
+        #[arg(short, long, default_value = "all")]
+        source: String,
+    },
+
     /// Get version information
     Version,
 }

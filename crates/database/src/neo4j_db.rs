@@ -157,7 +157,7 @@ impl MaterialDatabase for Neo4jDatabase {
                 let id_str: String = node.get("id").unwrap_or_default();
                 let formula: String = node.get("formula").unwrap_or_default();
 
-                if let Ok(uuid) = Uuid::parse_str(&id_str) {
+                if let Ok(_uuid) = Uuid::parse_str(&id_str) {
                     let material = Material::new(formula);
                     // Note: In a real implementation, you'd preserve the original ID and timestamps
                     return Ok(Some(material));
