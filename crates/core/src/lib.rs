@@ -23,6 +23,9 @@ pub mod lirs;
 // 🧬 Graph Neural Networks
 pub mod gnn;
 
+// 🗣️ Natural Language Interface
+pub mod nli;
+
 pub use error::{Error, Result};
 pub use material::Material;
 pub use property::Property;
